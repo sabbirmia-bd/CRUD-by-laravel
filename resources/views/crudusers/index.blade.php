@@ -35,7 +35,7 @@
                   <th>Action</th>
                 </tr>
                 <tbody>
-                  @foreach ($crudoperation as $crudoperate)
+                  @forelse ($crudoperation as $crudoperate)
                     <tr>
                       <td>{{ $crudoperation->firstItem() + $loop->index }}</td>
                       <td>{{ $crudoperate->add_name }}</td>
@@ -66,7 +66,11 @@
 
                       </td>
                     </tr>
-                  @endforeach
+                    @empty
+                    <tr>
+                      <td colspan="50" class="text-danger text-center">NO data to show</td>
+                    </tr>
+                  @endforelse
                 </tbody>
               </thead>
             </table>
